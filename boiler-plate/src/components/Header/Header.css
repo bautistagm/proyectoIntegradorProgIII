@@ -12,18 +12,21 @@ nav {
     display: flex;               
     justify-content: space-between; 
     align-items: center;   
-    background-color: brown;      
+    background-color: rgb(164, 163, 166);      
   }
   
   .main-nav, .user {            /* con el uso de la coma, estoy trabajando tanto la clase main nav y la de user, hago lo msimo abajo. */
     display: flex;               
     list-style: none;            
     margin: 0;
-    padding: 0;
+    padding: 30px;
+    font-size: 20px;
+    
   }
   
   .main-nav li, .user li {
-    margin-right: 20px;          
+    margin-right: 20px;
+    padding: 60px;          
   }
   
 
