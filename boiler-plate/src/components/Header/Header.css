@@ -2,7 +2,11 @@ header {
     background-color: aquamarine;
 }
 
-
+.logo{
+  height: 120px; 
+  width: auto;
+  padding: 10%;
+}
 
 nav {
     display: flex;               

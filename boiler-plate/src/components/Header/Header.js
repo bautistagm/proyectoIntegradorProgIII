@@ -6,6 +6,10 @@ const Header = () => {
     return (
 
     <nav>
+
+        <ul>
+            <img src="/img/cheflix.jpg" alt="Logo" className="logo" />
+        </ul>
         <ul className="main-nav">
            
             <li>elemento menu</li>
