@@ -24,14 +24,7 @@ class PeliculasGrid extends Component {
     
       render() {
         return (
-          <section className='container'>
-            {
-              this.state.peliculas.length > 0 ?
-                this.state.peliculas.map((pelicula, idx) => <Peliculas key={idx} pelicula={pelicula} />)
-                :
-                <p>No se encontraron películas.</p>
-            }
-          </section>
+         <h1></h1>
         );
       }
 }
