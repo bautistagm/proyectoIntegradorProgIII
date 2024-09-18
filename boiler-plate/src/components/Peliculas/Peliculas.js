@@ -1,28 +1,30 @@
-import './Peliculas.css'
-import { Component } from "react"
+import './Peliculas.css';
+import { Component } from "react";
 
 class Peliculas extends Component {
-    
+
+  render() {
    
+    const { pelicula } = this.props;
 
-      render(){
+    if (!pelicula) {
+      return <p>No hay información disponible</p>;  
+    }
 
-        const {img, nombre, descripcion, link, extra} = this.props.personaje
-        return(
-            <div className="character-card">
-              <img src={`${img}`} alt="" />
-              <h4>{nombre}</h4>
-              <p>{descripcion}</p>
-              <a href={`${link}`}>Ver más</a>
-              <button>Ver extra</button>
-              <button>Ocultar extra</button>
-              <p className={this.state.viewMore === true ? 'show': 'hide' }>{extra}</p>
-          </div>
-        )
-      
-      }
-      
+   
+    const { img, nombre, descripcion, link, extra } = pelicula;
 
+    return (
+      <div className="character-card">
+        <img src={img} alt={nombre} />
+        <h4>{nombre}</h4>
+        <p>{descripcion}</p>
+        <button><a href={link}>Ver todas</a></button>
+        
+        <p className={this.state?.viewMore === true ? 'show' : 'hide'}>{extra}</p>
+      </div>
+    );
+  }
 }
 
 export default Peliculas;
