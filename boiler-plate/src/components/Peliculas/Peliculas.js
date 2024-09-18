@@ -3,13 +3,7 @@ import { Component } from "react"
 
 class Peliculas extends Component {
     
-    constructor(props){
-        super(props);
-        this.state = {
-          viewMore : false
-        }
-      }
-      
+   
 
       render(){
 
