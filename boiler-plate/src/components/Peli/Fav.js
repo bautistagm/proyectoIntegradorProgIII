@@ -1,8 +1,8 @@
-import './Peli.css';
+import './Fav.css';
 import React, { Component } from 'react';
 import Peliculas from '../Peliculas/Peliculas';
 
-class Peli extends Component{
+class Fav extends Component{
     constructor(props) {
         super(props);
         this.state = { esFavorito: false};
@@ -65,4 +65,4 @@ class Peli extends Component{
     }
 }
 
-export default Peli
+export default Fav
