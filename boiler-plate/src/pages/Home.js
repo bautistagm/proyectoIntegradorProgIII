@@ -30,7 +30,7 @@ class Home extends Component {
     render() {
       return (
         <>
-         <div>
+         <div className="fondo">
                 <SearchForm history={this.props.history}/>
                 <form onSubmit={(e)=>this.handleCancelSubmit(e)}>
                     <input onChange={(e)=>this.handleFormChange(e)} name = "query" value={this.state.query}/>

@@ -1,27 +1,79 @@
+
 import './Peliculas.css';
 import { Component } from "react";
 
 class Peliculas extends Component {
 
-  render() {
+  
+    constructor(props) {
+        super(props);
+        this.state = {
+          descripciontxt: 'Ver descripcion',  
+          descripcion: 'Oculta ',
+          favoritostxt: "Agregar"
+        };
+      };
+      mostrarDesc () {
+        if(this.state.descripcion === 'Oculta'){
+            this.setState({
+                 descripciontxt: 'Ocultar descripcion',  
+                 descripcion: 'Visible '
+            })
+        }else{
+            this.setState({
+            descripciontxt: 'Ver descripcion',  
+            descripcion: 'Oculta'
+       })
+
+        }};
+
+        componentDidMount() {
+           let favs = [];
+           const storage = localStorage.getItem('favoritos')
+
+           if( storage !== null){
+            let favsJs = JSON.parse(storage)
+            favs = favsJs
+           }
+           if(favs.includes(this.props.pelicula.id ) ){
+            this.setState({
+                favoritostxt: 'Quitar'
+            })
+           }};
+            cambiarFavs( id ){
+                let favs = [];
+                const storage = localStorage.getItem('favoritos')
+     
+                if( storage !== null){
+                 let favsJs = JSON.parse(storage)
+                 favs = favsJs
+                }
+                if(favs.includes(id ) ){
+                    favs = favs.filter( ID => ID !== id ); 
+                    this.setState({
+                     favoritostxt: 'Agregar'
+                 })
+                }else{
+                    favs.push(id);
+                    this.setState({
+                        favoritostxt: 'Quitar'
+                    })
+                }}   
+  
+  
+    render() {
    
-    const { pelicula } = this.props;
-
-    if (!pelicula) {
-      return <p>No hay información disponible</p>;  
-    }
-
-   
-    const { img, nombre, descripcion, link, extra } = pelicula;
-
     return (
       <div className="character-card">
-        <img src={img} alt={nombre} />
-        <h4>{nombre}</h4>
-        <p>{descripcion}</p>
-        <button><a href={link}>Ver todas</a></button>
+        <img src={`https://image.tmdb.org/t/p/w342/${this.props.pelicula.poster_path}`} alt={'hola'} />
+        <h4>{this.props.pelicula.title}</h4>
+        <p onClick={()=>this.mostrarDesc()} className='OverViewCard'>{this.state.descripciontxt} </p>
+        <p className={this.state.descripcion}>{this.props.pelicula.overview}</p>
+        <button><a href={'hola'}>Ver todas</a></button>
+
+
+        <button onClick={() => this.cambiarFavs(this.props.pelicula.id)}>{this.state.favoritostxt}</button>
         
-        <p className={this.state?.viewMore === true ? 'show' : 'hide'}>{extra}</p>
       </div>
     );
   }
