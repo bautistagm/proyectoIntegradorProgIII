@@ -13,7 +13,7 @@ class Home extends Component {
          
           <h1>Bienvenidos a Cheflix!</h1>
           <main>
-            <h2>Peliculas más Populares</h2>
+            <h2 >Mejores Rateadas</h2>
             <PeliculasGrid />
   
             <h2>Cartelera</h2>

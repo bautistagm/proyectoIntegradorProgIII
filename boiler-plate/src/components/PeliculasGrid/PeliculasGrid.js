@@ -23,7 +23,7 @@ class PeliculasGrid extends Component {
 
   render() {
     return (
-      <section className="container">
+      <section className="card-container">
         {this.state.peliculas.length > 0 ? (
           this.state.peliculas.map((pelicula, idx) => (
             <Peliculas key={idx} pelicula={pelicula} />

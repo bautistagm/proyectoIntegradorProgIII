@@ -3,6 +3,8 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap; 
-    background-color: #827d7d;
+    background-color: #acb87e;
     padding: 10px;
+    flex-direction: row;
+    border-radius: 70px;
 }
