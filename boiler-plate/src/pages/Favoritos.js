@@ -1,33 +1,61 @@
 import React, { Component } from 'react';
-import PeliculasGrid from '../components/PeliculasGrid/PeliculasGrid';
+import Peliculas from '../components/Peliculas/Peliculas';
 
 class Favoritos extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            peliculasFavoritas: []
+        };
     }
 
     componentDidMount() {
-        const storage = localStorage.getItem('favoritos')
+        const storage = localStorage.getItem('favoritos');
         if (storage !== null) {
-            const parsedStorage = JSON.parse(storage)
+            const parsedStorage = JSON.parse(storage);
             Promise.all(
                 parsedStorage.map(id =>
-                    fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=3f3f4472794a21df42007fe391cd1280'))
-                    .then(response => response.json())
-                    .then(data => {
-                        this.setState({
-                            peliculas: [...this.state.peliculas, data]
-                        })
-                        console.log(data);
-                    })
+                    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=3f3f4472794a21df42007fe391cd1280`)
+                        .then(response => response.json())
+                )
             )
+            .then(data => {
+                this.setState({
+                    peliculasFavoritas: data
+                });
+            })
+            .catch(error => console.log(error));
         }
     }
 
+    quitarFavoritos(id) {
+        const storage = localStorage.getItem('favoritos');
+        const parsedStorage = JSON.parse(storage);
+        const restoFavoritos = parsedStorage.filter(favId => favId !== id);
+
+        localStorage.setItem('favoritos', JSON.stringify(restoFavoritos));
+
+        this.setState({
+            peliculasFavoritas: this.state.peliculasFavoritas.filter(pelicula => pelicula.id !== id)
+        });
+    }
+
     render() {
-        return (<><PeliculasGrid peliculas= {this.state.peliculas}></PeliculasGrid></>
+        return (
+            <div className="favoritos-container">
+                <h1>Mis Favoritos</h1>
+                {this.state.peliculasFavoritas.length > 0 ? (
+                    this.state.peliculasFavoritas.map((pelicula) => (
+                        <div key={pelicula.id} className="favoritos-card">
+                            <Peliculas pelicula={pelicula} />
+                        </div>
+                    ))
+                ) : (
+                    <p>No tienes películas favoritas aún.</p>
+                )}
+            </div>
         );
     }
 }
 
-export default Favoritos
+export default Favoritos;

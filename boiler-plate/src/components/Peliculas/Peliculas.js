@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import './Peliculas.css';
 import { Component } from "react";
 
@@ -58,15 +58,19 @@ class Peliculas extends Component {
                     this.setState({
                         favoritostxt: 'Quitar'
                     })
-                }}   
-  
+                }
+                localStorage.setItem('favoritos', JSON.stringify(favs));
+              }   
+        
   
     render() {
    
     return (
       <div className="character-card">
-        <img src={`https://image.tmdb.org/t/p/w342/${this.props.pelicula.poster_path}`} alt={'hola'} />
+        <Link to={`/detalle/${this.props.pelicula.id}`}>
+        <img src={`https://image.tmdb.org/t/p/w342/${this.props.pelicula.poster_path}`} alt={this.props.pelicula.title} />
         <h4>{this.props.pelicula.title}</h4>
+        </Link>
         <p onClick={()=>this.mostrarDesc()} className='OverViewCard'>{this.state.descripciontxt} </p>
         <p className={this.state.descripcion}>{this.props.pelicula.overview}</p>
         <button><a href={'hola'}>Ver todas</a></button>

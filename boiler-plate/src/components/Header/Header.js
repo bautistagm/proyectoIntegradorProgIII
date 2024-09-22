@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import SearchForm from "../SearchForm/SearchForm";
 
@@ -11,8 +12,9 @@ class Header extends Component {
                         <img src="/img/cheflix.jpg" alt="Logo" className="logo" />
                     </ul>
                     <ul className="main-nav">
-                        <li>Detalle</li>
-                        <li>Favoritos</li>
+                        <li>
+                            <Link to="/favoritos">Favoritos</Link>
+                        </li>
                         <li>Ver todas</li>
                     </ul>
                     <div className="fondo">
