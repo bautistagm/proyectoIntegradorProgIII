@@ -15,7 +15,12 @@ class Header extends Component {
                         <li>
                             <Link to="/favoritos">Favoritos</Link>
                         </li>
-                        <li>Ver todas</li>
+                        <li>
+                            <Link to="/all">Ver Todas</Link>
+                        </li>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
                     </ul>
                     <div className="fondo">
                         <SearchForm history={this.props.history} />
