@@ -9,13 +9,16 @@ class SearchResults extends Component{
             movies:[]
         }
     }
-
+    
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${this.props.location.state.query}&api_key=3f3f4472794a21df42007fe391cd1280`)
-        .then(response => response.json())
-        .then(data => this.setState({
-            movies:data.results
-        })).catch(error => console.log(error));
+      console.log(this.props.location.search);        
+            fetch(`https://api.themoviedb.org/3/search/movie?query=${this.props.location.search}&api_key=3f3f4472794a21df42007fe391cd1280`)
+                .then(response => response.json())
+                .then(data => this.setState({
+                    movies: data.results
+                }), ()=> console.log("moviesss",this.state.movies))
+                .catch(error => console.log(error));
+        
     }
 
     render(){

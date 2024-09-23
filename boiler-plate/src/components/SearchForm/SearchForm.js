@@ -19,10 +19,10 @@ class SearchForm extends Component {
         e.preventDefault();
     }
 
-    handleFormSubmit(e) {
-        e.preventDefault();
+    handleFormSubmit(){
         if (this.state.query) {
-        this.props.history.push("/search", { query: this.state.query });
+        this.props.history.push("/search",this.state.query);
+        
     }
     }
 
@@ -36,7 +36,7 @@ class SearchForm extends Component {
                         value={this.state.query}
                         placeholder="Buscar..."
                     />
-                    <button type="button" onClick={() => this.handleFormSubmit()}>
+                    <button  onClick={() => this.handleFormSubmit()}>
                         Search
                     </button>
                 </form>
