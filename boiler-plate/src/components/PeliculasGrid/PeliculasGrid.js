@@ -17,7 +17,8 @@ class PeliculasGrid extends Component {
       .then(data => {
         this.setState({
           peliculas: data.results.slice(0, 5)
-        });
+        }, ()=> console.log("peliculAS ENCONTRD",this.state.peliculas)
+        );
       })
       .catch(error => console.log(error));
   }

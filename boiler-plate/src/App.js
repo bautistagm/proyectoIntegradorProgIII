@@ -7,6 +7,7 @@ import Favoritos from "./pages/Favoritos";
 import PeliculaDetalle from './pages/PeliculaDetalle';
 import SearchResults from "./pages/SearchResults";
 import NotFound from './components/NotFound/NotFound';
+import MejoresRateadas from "./pages/MejoresRateadas";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         </Switch>
 
         <Switch>
+          <Route path= '/mejoresrateadas' component= {MejoresRateadas} />
           <Route exact path="/favoritos" component={Favoritos}  />
           <Route exact path='/' component={Home} />
           <Route path="/detalle/:id" component={PeliculaDetalle} />

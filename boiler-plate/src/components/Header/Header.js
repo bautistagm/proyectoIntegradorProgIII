@@ -12,22 +12,24 @@ class Header extends Component {
                         <img src="/img/cheflix.jpg" alt="Logo" className="logo" />
                     </ul>
                     <ul className="main-nav">
-                        <li>
-                            <Link to="/favoritos">Favoritos</Link>
-                        </li>
-                        <li>
-                            <Link to="/all">Ver Todas</Link>
-                        </li>
-                        <li>
+                    <li className="li-navs">
                             <Link to="/">Home</Link>
                         </li>
+                        <li className="li-navs">
+                            <Link to="/favoritos">Favoritos</Link>
+                        </li>
+                        <li className="li-navs">
+                            <Link to="/mejoresrateadas">Mejores Rateadas</Link>
+                        </li>
+                        <li className="li-navs">
+                            <Link to="/all">Cartelera</Link>
+                        </li>
+                        
                     </ul>
                     <div className="fondo">
                         <SearchForm history={this.props.history} />
                     </div>
-                    <ul className="user">
-                        <li>Nombre usuario <img src="" alt="" /></li>
-                    </ul>
+                  
                 </nav>
             </>
         );
