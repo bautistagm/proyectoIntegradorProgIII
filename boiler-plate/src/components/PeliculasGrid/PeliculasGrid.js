@@ -11,11 +11,12 @@ class PeliculasGrid extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=3f3f4472794a21df42007fe391cd1280')
+    const { apiEndpoint } = this.props;  // Recibimos la URL desde las props
+    fetch(`${apiEndpoint}?api_key=3f3f4472794a21df42007fe391cd1280`)
       .then(response => response.json())
       .then(data => {
         this.setState({
-            peliculas: data.results.slice(0, 5) 
+            peliculas: data.results.slice(0, 5)  // Mostramos solo 5 películas
         });
       })
       .catch(error => console.log(error));  
