@@ -1,39 +1,91 @@
 import React, { Component } from 'react';
 import PeliculasGrid from "../components/PeliculasGrid/PeliculasGrid";
-import "../pages/styles.css";
-
 
 class MejoresRateadas extends Component {
     constructor() {
         super();
         this.state = {
-            topRatedMovies: [],
+            movies: [],             
+            filteredMovies: [],      
+            filterValue: '',         
+            actualPage: 1,           
         };
     }
 
     componentDidMount() {
+        this.fetchMovies();  
+    }
 
-        fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=3f3f4472794a21df42007fe391cd1280")
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    topRatedMovies: data.results,
-                });
-            })
-            .catch(error => console.log(error));
+    
+    fetchMovies() {
+        fetch(
+            `https://api.themoviedb.org/3/movie/top_rated?api_key=3f3f4472794a21df42007fe391cd1280&page=${this.state.actualPage}`
+        )
+        .then((response) => response.json())
+        .then((data) => {
+            const newMovies = this.state.movies.concat(data.results);  
+            this.setState({
+                movies: newMovies,               
+                filteredMovies: newMovies,        
+                actualPage: this.state.actualPage + 1  
+            });
+        })
+        .catch((err) => console.log(err));
+    }
+
+   
+    handleFilter(e) {
+        const value = e.target.value.toLowerCase();  
+        this.setState({
+            filterValue: value,
+            filteredMovies: this.state.movies.filter(movie =>
+                movie.title.toLowerCase().includes(value)
+            ),
+        });
+    }
+
+    
+    handleResetFilter() {
+        this.setState({
+            filterValue: '',
+            filteredMovies: this.state.movies  
+        });
+    }
+
+   
+    handleLoadMore() {
+        this.fetchMovies(); 
     }
 
     render() {
         return (
             <>
                 <h1>Mejores Películas Rateadas</h1>
-                <main>
 
-                    <PeliculasGrid peliculas={this.state.topRatedMovies} />
-                </main>
+               
+                <div style={{ marginBottom: "20px" }}>
+                    <input 
+                        type="text"
+                        placeholder="Filtrar películas"
+                        value={this.state.filterValue}
+                        onChange={(e) => this.handleFilter(e)}
+                    />
+                    <button onClick={() => this.handleResetFilter()}>Resetear Filtro</button>
+                </div>
+
+               
+                <PeliculasGrid peliculas={this.state.filteredMovies} />
+
+               
+                <div style={{ marginTop: "20px", textAlign: "center" }}>
+                    <button onClick={() => this.handleLoadMore()}>Cargar más</button>
+                </div>
             </>
         );
     }
 }
 
 export default MejoresRateadas;
+
+
+
