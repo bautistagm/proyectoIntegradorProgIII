@@ -75,7 +75,7 @@ class Peliculas extends Component {
         </Link>
         <p onClick={() => this.mostrarDesc()} className='OverViewCard'>{this.state.descripciontxt} </p>
         <p className={this.state.descripcion}>{this.props.pelicula.overview}</p>
-        <button><a href={'/mejoresrateadas'}>Ver todas</a></button>
+        
 
 
         <button onClick={() => this.cambiarFavs(this.props.pelicula.id)}>{this.state.favoritostxt}</button>
