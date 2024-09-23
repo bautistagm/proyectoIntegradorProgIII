@@ -1,6 +1,5 @@
 import PeliculasGrid from "../components/PeliculasGrid/PeliculasGrid";
 import { Component } from "react";
-import SearchForm from "../components/SearchForm/SearchForm";
 import "../pages/styles.css";
 
 class Home extends Component {

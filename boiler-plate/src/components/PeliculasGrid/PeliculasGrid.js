@@ -6,20 +6,20 @@ class PeliculasGrid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      peliculas: [],  
+      peliculas: [],
     };
   }
 
   componentDidMount() {
-    const { apiEndpoint } = this.props;  // Recibimos la URL desde las props
+    const { apiEndpoint } = this.props;
     fetch(`${apiEndpoint}?api_key=3f3f4472794a21df42007fe391cd1280`)
       .then(response => response.json())
       .then(data => {
         this.setState({
-            peliculas: data.results.slice(0, 5)  // Mostramos solo 5 películas
+          peliculas: data.results.slice(0, 5)
         });
       })
-      .catch(error => console.log(error));  
+      .catch(error => console.log(error));
   }
 
   render() {

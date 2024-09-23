@@ -63,7 +63,7 @@ class PeliculaDetalle extends Component {
                 <button onClick={() => this.agregarAFavoritos(pelicula.id)}>
                     Agregar a Favoritos
                 </button>
-                {mensaje && <p>{mensaje}</p>} 
+                {mensaje && <p>{mensaje}</p>}
             </div>
         );
     }

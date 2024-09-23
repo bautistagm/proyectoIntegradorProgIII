@@ -3,10 +3,8 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 import { BrowserRouter, Link,  Route, Switch } from 'react-router-dom';  
 import Footer from "./components/Footer/Footer";
-import PeliculasGrid from "./components/PeliculasGrid/PeliculasGrid";
 import Favoritos from "./pages/Favoritos";
 import PeliculaDetalle from './pages/PeliculaDetalle';
-import SearchForm from "./components/SearchForm/SearchForm";
 import SearchResults from "./pages/SearchResults";
 import NotFound from './components/NotFound/NotFound';
 
