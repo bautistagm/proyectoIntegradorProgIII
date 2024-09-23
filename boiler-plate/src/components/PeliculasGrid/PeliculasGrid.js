@@ -3,31 +3,13 @@ import React, { Component } from 'react';
 import Peliculas from '../Peliculas/Peliculas';
 
 class PeliculasGrid extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      peliculas: [],
-    };
-  }
-
-  componentDidMount() {
-    const { apiEndpoint } = this.props;
-    fetch(`${apiEndpoint}?api_key=3f3f4472794a21df42007fe391cd1280`)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          peliculas: data.results.slice(0, 5)
-        }, ()=> console.log("peliculAS ENCONTRD",this.state.peliculas)
-        );
-      })
-      .catch(error => console.log(error));
-  }
-
   render() {
+    const { peliculas } = this.props;
+
     return (
       <section className="card-container">
-        {this.state.peliculas.length > 0 ? (
-          this.state.peliculas.map((pelicula, idx) => (
+        {peliculas && peliculas.length > 0 ? (
+          peliculas.map((pelicula, idx) => (
             <Peliculas key={idx} pelicula={pelicula} />
           ))
         ) : (
@@ -39,3 +21,4 @@ class PeliculasGrid extends Component {
 }
 
 export default PeliculasGrid;
+
