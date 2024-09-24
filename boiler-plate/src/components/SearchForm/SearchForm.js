@@ -21,8 +21,7 @@ class SearchForm extends Component {
 
     handleFormSubmit(){
         if (this.state.query) {
-        this.props.history.push("/search",this.state.query);
-        
+        this.props.history.push(`/search?query=${this.state.query}`);
     }
     }
 
