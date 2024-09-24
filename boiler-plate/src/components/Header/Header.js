@@ -22,7 +22,7 @@ class Header extends Component {
                             <Link to="/mejoresrateadas">Mejores Rateadas</Link>
                         </li>
                         <li className="li-navs">
-                            <Link to="/all">Cartelera</Link>
+                            <Link to="/cartelera">Cartelera</Link>
                         </li>
                         
                     </ul>
