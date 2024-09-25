@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Peliculas from '../components/Peliculas/Peliculas';
+import Loader from '../components/Loader/Loader';
 
 class Favoritos extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            peliculasFavoritas: []
+            peliculasFavoritas: [],
+            cargando: true,
         };
     }
 
@@ -21,10 +23,16 @@ class Favoritos extends Component {
             )
             .then(data => {
                 this.setState({
-                    peliculasFavoritas: data
+                    peliculasFavoritas: data,
+                    cargando: false,
                 });
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                console.log(error);
+                this.setState({ cargando: false });
+            });
+        } else {
+            this.setState({ cargando: false });
         }
     }
 
@@ -44,7 +52,10 @@ class Favoritos extends Component {
         return (
             <div className="favoritos-container">
                 <h1>Mis Favoritos</h1>
-                {this.state.peliculasFavoritas.length > 0 ? (
+                {this.state.cargando ? ( 
+                    <Loader />
+                ) : (
+                  this.state.peliculasFavoritas.length > 0 ? (
                     this.state.peliculasFavoritas.map((pelicula) => (
                         <div key={pelicula.id} className="favoritos-card">
                             <Peliculas pelicula={pelicula} />
@@ -52,6 +63,7 @@ class Favoritos extends Component {
                     ))
                 ) : (
                     <p>No tienes películas favoritas aún.</p>
+                )
                 )}
             </div>
         );

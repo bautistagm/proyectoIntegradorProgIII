@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PeliculasGrid from "../components/PeliculasGrid/PeliculasGrid";
+import Loader from '../components/Loader/Loader';
 
 class MejoresRateadas extends Component {
     constructor() {
@@ -8,7 +9,8 @@ class MejoresRateadas extends Component {
             movies: [],             
             filteredMovies: [],      
             filterValue: '',         
-            actualPage: 1,           
+            actualPage: 1,
+            cargando: true,           
         };
     }
 
@@ -18,6 +20,7 @@ class MejoresRateadas extends Component {
 
     
     fetchMovies() {
+        this.setState({ cargando: true });
         fetch(
             `https://api.themoviedb.org/3/movie/top_rated?api_key=3f3f4472794a21df42007fe391cd1280&page=${this.state.actualPage}`
         )
@@ -27,10 +30,14 @@ class MejoresRateadas extends Component {
             this.setState({
                 movies: newMovies,               
                 filteredMovies: newMovies,        
-                actualPage: this.state.actualPage + 1  
+                actualPage: this.state.actualPage + 1,
+                cargando: false   
             });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            console.log(err);
+            this.setState({ cargando: false });
+        });
     }
 
    
@@ -58,30 +65,35 @@ class MejoresRateadas extends Component {
     }
 
     render() {
+        const { cargando, filteredMovies } = this.state;
+        
         return (
             <>
             <main>
                 <h2>Mejores Películas Rateadas</h2>
 
-               
-                <div style={{ marginBottom: "20px" }}>
-                    <input 
-                        type="text"
-                        placeholder="Filtrar películas"
-                        value={this.state.filterValue}
-                        onChange={(e) => this.handleFilter(e)}
-                    />
-                    <button onClick={() => this.handleResetFilter()}>Resetear Filtro</button>
-                </div>
+                {cargando ? ( 
+                    <Loader />
+                ) : (
+                    <>
+                    <div style={{ marginBottom: "20px" }}>
+                        <input 
+                            type="text"
+                            placeholder="Filtrar películas"
+                            value={this.state.filterValue}
+                            onChange={(e) => this.handleFilter(e)}
+                        />
+                        <button onClick={() => this.handleResetFilter()}>Resetear Filtro</button>
+                    </div>
 
-               
-                <PeliculasGrid peliculas={this.state.filteredMovies} />
+                    <PeliculasGrid peliculas={filteredMovies} />
 
-               
-                <div style={{ marginTop: "20px", textAlign: "center" }}>
-                    <button onClick={() => this.handleLoadMore()}>Cargar más</button>
-                </div>
-                </main>
+                    <div style={{ marginTop: "20px", textAlign: "center" }}>
+                        <button onClick={() => this.handleLoadMore()}>Cargar más</button>
+                    </div>
+                    </>
+                )}
+            </main>
             </>
         );
     }

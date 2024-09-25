@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import "../pages/styles.css"
+import "../pages/styles.css";
+import Loader from '../components/Loader/Loader';
 
 class PeliculaDetalle extends Component {
     constructor(props) {
@@ -44,7 +45,7 @@ class PeliculaDetalle extends Component {
         const { pelicula, cargando, mensaje } = this.state;
 
         if (cargando) {
-            return <div>Cargando...</div>;
+            return <Loader/>;
         }
 
         if (!pelicula) {

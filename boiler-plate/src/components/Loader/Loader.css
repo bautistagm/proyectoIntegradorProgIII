@@ -7,6 +7,10 @@
 }
 
 .loader img {
-    width: 50px;
+    width: 80px;
     margin-top: 10px;
+}
+.loader p{
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
