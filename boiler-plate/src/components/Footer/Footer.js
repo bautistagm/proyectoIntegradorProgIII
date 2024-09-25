@@ -6,7 +6,7 @@ function Footer(){
     return ( 
 
         <footer className="foot">
-        <p>© 2024 Cheflix. Todos los derechos reservados.</p>
+        <p>Copyright © Dashboard 2024</p>
     
         <h4>Antonio Cao Lavignolle, Fermin Garcia Belmonte, Bautista Garcia Mansilla</h4>
 

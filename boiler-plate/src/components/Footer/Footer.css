@@ -2,6 +2,12 @@
     background-color: rgb(242, 210, 223);
     border-radius: 10px;
     text-align: center;
+}
+
+.foot {
+    background-color: rgb(242, 210, 223);
+    border-radius: 10px;
+    text-align: center;
     padding: 20px 10px; 
     font-size: 14px; 
 }
