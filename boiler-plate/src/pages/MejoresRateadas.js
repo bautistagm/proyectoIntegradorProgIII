@@ -60,7 +60,8 @@ class MejoresRateadas extends Component {
     render() {
         return (
             <>
-                <h1>Mejores Películas Rateadas</h1>
+            <main>
+                <h2>Mejores Películas Rateadas</h2>
 
                
                 <div style={{ marginBottom: "20px" }}>
@@ -80,6 +81,7 @@ class MejoresRateadas extends Component {
                 <div style={{ marginTop: "20px", textAlign: "center" }}>
                     <button onClick={() => this.handleLoadMore()}>Cargar más</button>
                 </div>
+                </main>
             </>
         );
     }

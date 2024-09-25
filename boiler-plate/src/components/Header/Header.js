@@ -26,7 +26,7 @@ class Header extends Component {
                         </li>
                         
                     </ul>
-                    <div className="fondo">
+                    <div className="buscador">
                         <SearchForm history={this.props.history} />
                     </div>
                   

@@ -60,7 +60,8 @@ class Cartelera extends Component {
     render() {
         return (
             <>
-                <h1>Cartelera</h1>
+            <main>
+                <h2>Cartelera</h2>
 
                
                 <div style={{ marginBottom: "20px" }}>
@@ -80,6 +81,7 @@ class Cartelera extends Component {
                 <div style={{ marginTop: "20px", textAlign: "center" }}>
                     <button onClick={() => this.handleLoadMore()}>Cargar más</button>
                 </div>
+                </main>
             </>
         );
     }
