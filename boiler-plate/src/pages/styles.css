@@ -74,6 +74,24 @@ h1{
     transition: background-color 0.3s ease;
 }
 
+.favoritos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.favoritos-card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.favoritos-card h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(56, 32, 32);
+}
+
 @media (max-width: 360px) {
 
     h1, h2 {
@@ -105,6 +123,16 @@ h1{
         padding: 10px;
         font-size: 16px;
       }
+
+      .favoritos-container {
+        flex-direction: column;
+        align-items: center;
     }
+
+        .favoritos-card {
+        flex: 0 1 100%;
+        max-width: 300px;
+    }
+  }
 
 

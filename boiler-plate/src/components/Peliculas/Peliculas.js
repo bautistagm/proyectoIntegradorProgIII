@@ -42,6 +42,7 @@ class Peliculas extends Component {
       })
     }
   };
+  
   cambiarFavs(id) {
     let favs = [];
     const storage = localStorage.getItem('favoritos')
