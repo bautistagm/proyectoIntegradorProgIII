@@ -1,15 +1,10 @@
 .foot {
-    background-color: rgb(242, 210, 223);
-    border-radius: 10px;
-    text-align: center;
-}
-
-.foot {
-    background-color: rgb(242, 210, 223);
+    background-color:blanchedalmond;
     border-radius: 10px;
     text-align: center;
     padding: 20px 10px; 
     font-size: 14px; 
+    margin-top: 20px; 
 }
 
 @media (max-width: 360px) {
@@ -25,5 +20,7 @@
       .foot p {
         font-size: 12px;  
      }
+
+     
 
 }

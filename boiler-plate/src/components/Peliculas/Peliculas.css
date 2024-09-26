@@ -1,10 +1,10 @@
 .character-card {
     width: 200px; 
     margin: 10px; 
-    background-color: #a7daab; 
+    background-color: blanchedalmond; 
     border: 5px solid #ccc; 
     border-radius: 4px; 
-    border-color: rgb(75, 112, 75);
+    border-color: rgb(0, 0, 0);
     overflow: hidden; 
     flex-direction: row;
     padding: 30px;

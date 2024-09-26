@@ -52,7 +52,7 @@ class Home extends Component {
           <Loader/>
         ) : (
           <>
-          <h2>Mejores Rateadas</h2>
+          <h2>Mejores Ranqueadas</h2>
           <PeliculasGrid peliculas={this.state.topRatedMovies} />
 
           <h2>Cartelera</h2>

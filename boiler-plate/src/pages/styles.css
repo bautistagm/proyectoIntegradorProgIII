@@ -7,14 +7,14 @@ main{
 h2{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 30px;
-    color: rgb(56, 32, 32);
+    color: rgb(9, 9, 9);
     text-align: center;
     padding-bottom: 20px;
     padding-top: 20px;
 }
 
 body{
-    background-color: rgb(158, 159, 220);
+    background-color: rgb(147, 149, 243);
     cursor: pointer;
 }
 
@@ -24,7 +24,7 @@ h1{
     text-align: center;
     text-decoration: underline;
     cursor: pointer;
-    color: brown;
+    color: rgb(7, 7, 7);
 }
 
 .pelicula-detalle {
