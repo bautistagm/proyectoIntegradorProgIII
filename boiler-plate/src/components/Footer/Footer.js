@@ -10,8 +10,6 @@ function Footer(){
     
         <h4>Antonio Cao Lavignolle, Fermin Garcia Belmonte, Bautista Garcia Mansilla</h4>
 
-
-
         </footer>
     )
 
