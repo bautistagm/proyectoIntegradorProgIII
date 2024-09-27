@@ -76,7 +76,7 @@ class MejoresRateadas extends Component {
                     <Loader />
                 ) : (
                     <>
-                    <div style={{ marginBottom: "20px" }}>
+                    <div style={{ marginBottom: "20px"}}>
                         <input 
                             type="text"
                             placeholder="Filtrar películas"

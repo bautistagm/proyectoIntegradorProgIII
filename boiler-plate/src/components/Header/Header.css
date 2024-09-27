@@ -6,6 +6,7 @@ header {
   height: 120px; 
   width: auto;
   padding: 10%;
+  border-radius: 50px;
 }
 
 nav {
@@ -34,6 +35,7 @@ nav {
   .li-navs a {
     text-decoration: none;
     color: black;
+    text-decoration: underline;
   }
   
   @media (max-width: 360px) {

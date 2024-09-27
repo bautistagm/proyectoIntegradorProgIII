@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./SearchForm.css"
 
 class SearchForm extends Component {
     constructor(props) {
@@ -34,9 +35,10 @@ class SearchForm extends Component {
                         name="query"
                         value={this.state.query}
                         placeholder="Buscar..."
+                        className="caja"
                     />
-                    <button  onClick={() => this.handleFormSubmit()}>
-                        Search
+                    <button className="button" onClick={() => this.handleFormSubmit()}>
+                        <img src="/img/lupita.jpg" alt="Buscar" class="search-icon"/>
                     </button>
                 </form>
             </div>
